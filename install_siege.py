@@ -12,5 +12,6 @@ def func(self):
         sh.sudo.rpm("-Uvh", "./epel-release-6-8.noarch.rpm")
     except sh. ErrorReturnCode_1, e:
         self.warn(self.rid, str(e))
-    r=sh.sudo.yum("install", "-y", "siege")
+    finally:
+        r=sh.sudo.yum("install", "-y", "siege")
     return r
